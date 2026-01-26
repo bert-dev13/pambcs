@@ -1,4 +1,4 @@
-// Enhanced interactivity for the landing page
+// Enhanced interactivity for the PAMBCS website
 
 document.addEventListener('DOMContentLoaded', function() {
     try {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             setTimeout(() => {
                                 entry.target.style.opacity = '1';
                                 entry.target.style.transform = 'translateY(0)';
-                            }, index * 100);
+                            }, index * 50);
                             observer.unobserve(entry.target);
                         }
                     });
@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add keyboard navigation support
             cards.forEach(card => {
+                card.setAttribute('tabindex', '0');
                 card.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
@@ -67,24 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         }
-        
-        // Add parallax effect to background circles on scroll
-        const circles = document.querySelectorAll('.bg-circle');
-        if (circles.length > 0) {
-            let lastScrollY = window.scrollY;
-            
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                
-                circles.forEach((circle, index) => {
-                    const speed = (index + 1) * 0.5;
-                    const yPos = -(scrollY * speed);
-                    circle.style.transform = `translateY(${yPos}px)`;
-                });
-                
-                lastScrollY = scrollY;
-            });
-        }
+
     } catch (error) {
         // Silently handle any errors to prevent breaking the page
         console.error('Error initializing page interactions:', error);
@@ -102,7 +86,7 @@ style.textContent = `
     .ripple {
         position: absolute;
         border-radius: 50%;
-        background: rgba(22, 163, 74, 0.3);
+        background: rgba(27, 94, 32, 0.2);
         transform: scale(0);
         animation: ripple-animation 0.6s ease-out;
         pointer-events: none;

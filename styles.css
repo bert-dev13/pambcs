@@ -454,8 +454,11 @@ body::before {
     gap: var(--spacing-sm);
     box-shadow: 
         var(--shadow-md),
-        inset 0 0 0 2px var(--border-color);
-    border: 2px solid var(--border-color);
+        inset 0 0 0 1px var(--border-color),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--primary-green);
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
@@ -495,11 +498,15 @@ body::before {
     transform: translateY(-8px);
     box-shadow: 
         var(--shadow-green),
-        inset 0 0 0 2px var(--primary-green-light),
+        inset 0 0 0 1px var(--primary-green-light),
+        inset 0 2px 6px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.08),
+        0 0 0 1px var(--primary-green-light),
         0 0 0 2px rgba(22, 163, 74, 0.1),
-        0 0 40px rgba(22, 163, 74, 0.1);
+        0 0 40px rgba(22, 163, 74, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.15);
     border-color: var(--primary-green-light);
-    border-width: 2px;
+    border-width: 1px;
 }
 
 .card:hover::before {
@@ -573,8 +580,12 @@ body::before {
     transform: none;
     box-shadow: 
         var(--shadow-md),
-        inset 0 0 0 2px var(--border-color);
-    border-color: var(--border-color);
+        inset 0 0 0 1px var(--border-color),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    border-color: rgba(22, 163, 74, 0.3);
+    border-width: 1px;
 }
 
 .card-disabled:hover::before {

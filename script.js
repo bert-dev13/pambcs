@@ -2,6 +2,51 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     try {
+        // Clean auto-play carousel (fade transitions, no controls)
+        const carouselContainer = document.querySelector('[data-about-carousel]');
+        if (carouselContainer) {
+            const slides = Array.from(carouselContainer.querySelectorAll('.carousel-slide'));
+            if (slides.length > 1) {
+                let currentIndex = 0;
+                const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const intervalMs = 2200;
+                let timer = null;
+
+                const showSlide = (index) => {
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                };
+
+                const nextSlide = () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                };
+
+                const startAutoPlay = () => {
+                    if (prefersReducedMotion) return;
+                    timer = setInterval(nextSlide, intervalMs);
+                };
+
+                const stopAutoPlay = () => {
+                    if (timer) {
+                        clearInterval(timer);
+                        timer = null;
+                    }
+                };
+
+                // Initialize first slide
+                showSlide(0);
+
+                // Pause on hover
+                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+                carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+                // Start autoplay
+                startAutoPlay();
+            }
+        }
+
         // Add ripple effect on card click
         const cards = document.querySelectorAll('.card');
         

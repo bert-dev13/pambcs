@@ -2,50 +2,73 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     try {
-        // Clean auto-play carousel (fade transitions, no controls)
-        const carouselContainer = document.querySelector('[data-about-carousel]');
-        if (carouselContainer) {
-            const slides = Array.from(carouselContainer.querySelectorAll('.carousel-slide'));
-            if (slides.length > 1) {
-                let currentIndex = 0;
-                const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                const intervalMs = 2200;
-                let timer = null;
-
-                const showSlide = (index) => {
-                    slides.forEach((slide, i) => {
-                        slide.classList.toggle('active', i === index);
-                    });
-                };
-
-                const nextSlide = () => {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    showSlide(currentIndex);
-                };
-
-                const startAutoPlay = () => {
-                    if (prefersReducedMotion) return;
-                    timer = setInterval(nextSlide, intervalMs);
-                };
-
-                const stopAutoPlay = () => {
-                    if (timer) {
-                        clearInterval(timer);
-                        timer = null;
-                    }
-                };
-
-                // Initialize first slide
-                showSlide(0);
-
-                // Pause on hover
-                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
-                carouselContainer.addEventListener('mouseleave', startAutoPlay);
-
-                // Start autoplay
-                startAutoPlay();
+        // Simple and reliable carousel initialization
+        const initializeCarousel = () => {
+            console.log('Initializing carousel...');
+            
+            const carouselContainer = document.querySelector('[data-about-carousel]');
+            if (!carouselContainer) {
+                console.log('Carousel container not found');
+                return;
             }
-        }
+            
+            const slides = Array.from(carouselContainer.querySelectorAll('.carousel-slide'));
+            console.log(`Found ${slides.length} slides`);
+            
+            if (slides.length <= 1) {
+                console.log('Not enough slides for carousel');
+                return;
+            }
+            
+            let currentIndex = 0;
+            const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const intervalMs = 1500;
+            let timer = null;
+
+            const showSlide = (index) => {
+                console.log(`Showing slide ${index}`);
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            };
+
+            const nextSlide = () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            };
+
+            const startAutoPlay = () => {
+                if (prefersReducedMotion) {
+                    console.log('Reduced motion preferred, not starting autoplay');
+                    return;
+                }
+                console.log('Starting autoplay');
+                if (timer) clearInterval(timer);
+                timer = setInterval(nextSlide, intervalMs);
+            };
+
+            const stopAutoPlay = () => {
+                console.log('Stopping autoplay');
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            };
+
+            // Initialize first slide immediately
+            showSlide(0);
+
+            // Pause on hover
+            carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+            // Start autoplay immediately
+            console.log('Starting autoplay immediately');
+            startAutoPlay();
+        };
+        
+        // Start carousel initialization immediately
+        initializeCarousel();
 
         // Add ripple effect on card click
         const cards = document.querySelectorAll('.card');

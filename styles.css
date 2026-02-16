@@ -659,6 +659,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Prevent layout shift during image loading */
+    min-height: 390px;
 }
 
 .carousel-container:hover {
@@ -693,6 +695,31 @@ body {
     object-fit: contain;
     display: block;
     border-radius: 8px;
+    /* Optimize image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Prevent layout shift */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Remove conflicting animation - let carousel handle transitions */
+}
+
+/* Loading state for carousel images */
+.carousel-slide img:not([src]) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 /* Main Content */
@@ -740,7 +767,7 @@ body {
 
 .quick-access-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-md);
     max-width: 1800px;
     margin: 0 auto;

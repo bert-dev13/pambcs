@@ -8,8 +8,18 @@
         content="Protected Area Management and Biodiversity Conservation System - Official government portal for environmental governance">
     <title>PAMBCS - Protected Area Management and Biodiversity Conservation</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preconnect and DNS prefetch for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/assets/images/denr-logo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="/assets/images/Bagong_Pilipinas_logo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="/assets/images/carousel/1 BATANES.jpg" as="image" fetchpriority="high">
+    
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap"
         rel="stylesheet">
@@ -21,7 +31,7 @@
         <div class="nav-container">
             <div class="nav-left">
                 <div class="nav-brand">
-                    <img src="/assets/images/denr-logo.png" alt="DENR Logo" class="logo-image">
+                    <img src="/assets/images/denr-logo.png" alt="DENR Logo" class="logo-image" loading="eager" fetchpriority="high">
                     <div class="nav-title-group">
                         <h1 class="site-title">PAMBCS</h1>
                         <p class="nav-subtitle">Protected Area Management and Biodiversity Conservation</p>
@@ -30,7 +40,7 @@
             </div>
             <div class="nav-right">
                 <img src="/assets/images/Bagong_Pilipinas_logo.png" alt="Bagong Pilipinas Logo"
-                    class="bagong-pilipinas-logo">
+                    class="bagong-pilipinas-logo" loading="eager" fetchpriority="high">
             </div>
         </div>
     </nav>
@@ -96,43 +106,43 @@
             <div class="image-carousel" aria-label="PAMBCS highlights">
                 <div class="carousel-container" data-about-carousel>
                     <div class="carousel-slide active">
-                        <img src="/assets/images/carousel/1 BATANES.jpg" alt="Batanes Protected Area">
+                        <img src="/assets/images/carousel/1 BATANES.jpg" alt="Batanes Protected Area" loading="eager" fetchpriority="high">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/2 PENABLANCA.jpg" alt="Penablanca Protected Area">
+                        <img src="/assets/images/carousel/2 PENABLANCA.jpg" alt="Penablanca Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/3 MAGAPIT.jpg" alt="Magapit Protected Area">
+                        <img src="/assets/images/carousel/3 MAGAPIT.jpg" alt="Magapit Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/4 PALAUI.jpg" alt="Palaui Protected Area">
+                        <img src="/assets/images/carousel/4 PALAUI.jpg" alt="Palaui Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/5 BAUA AND WANGAG.jpg" alt="Baua and Wangag Protected Area">
+                        <img src="/assets/images/carousel/5 BAUA AND WANGAG.jpg" alt="Baua and Wangag Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/6 TUMAUINI.jpg" alt="Tumauini Protected Area">
+                        <img src="/assets/images/carousel/6 TUMAUINI.jpg" alt="Tumauini Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/7 FUYOT.jpg" alt="Fuyot Protected Area">
+                        <img src="/assets/images/carousel/7 FUYOT.jpg" alt="Fuyot Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/8 NORTHERN SIERRA.jpg" alt="Northern Sierra Protected Area">
+                        <img src="/assets/images/carousel/8 NORTHERN SIERRA.jpg" alt="Northern Sierra Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/9 SALINAS.jpg" alt="Salinas Protected Area">
+                        <img src="/assets/images/carousel/9 SALINAS.jpg" alt="Salinas Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/10 DUPAX.jpg" alt="Dupax Protected Area">
+                        <img src="/assets/images/carousel/10 DUPAX.jpg" alt="Dupax Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/11CASECNAN.jpg" alt="Casecnan Protected Area">
+                        <img src="/assets/images/carousel/11CASECNAN.jpg" alt="Casecnan Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/12 BANGAN.jpg" alt="Bangan Protected Area">
+                        <img src="/assets/images/carousel/12 BANGAN.jpg" alt="Bangan Protected Area" loading="eager">
                     </div>
                     <div class="carousel-slide">
-                        <img src="/assets/images/carousel/13 QUIRINO.jpg" alt="Quirino Protected Area">
+                        <img src="/assets/images/carousel/13 QUIRINO.jpg" alt="Quirino Protected Area" loading="eager">
                     </div>
                 </div>
             </div>
@@ -335,6 +345,28 @@
                     </div>
                     <h3 class="card-title">PAMBCS WFP 2026</h3>
                     <p class="card-description">Work and Financial Plan management system for 2026</p>
+                    <div class="card-action">
+                        <span class="card-action-text">Open System</span>
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+
+                <!-- Monitoring for Compliance Card -->
+                <a href="https://docs.google.com/spreadsheets/d/1kYapff_F4Tiyvg-XGzO6uhwP2hSzeGhjn32JgxxpWyc/edit?usp=sharing"
+                    target="_blank" class="card" data-card="compliance">
+                    <div class="card-badge">Active</div>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Monitoring for Compliance</h3>
+                    <p class="card-description">Track and monitor compliance with environmental regulations and standards</p>
                     <div class="card-action">
                         <span class="card-action-text">Open System</span>
                         <span class="card-arrow">→</span>
